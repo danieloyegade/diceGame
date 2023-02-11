@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dice Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="/index.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div class="container">
+      <h1>Refresh Me</h1>
+      <h2 id="HH1" >winner</h2>
+      
+
+      <div class="dice">
+        <p>Player 1</p>
+        <img id= "P1i" class="img1" src="Images/dice6.png">
+      </div>
+
+      <div class="dice">
+        <p>Player 2</p>
+        <img id= "P2i" class="img2" src="Images/dice6.png">
+      </div>
+
+    </div>
+  <script>
+
+// Declare radom number variables and asign to a random int.
+    let randomNumber1 = Math.floor(Math.random() * 6) +1;
+    let randomNumber2 = Math.floor(Math.random() * 6) +1;
+
+// Functions for player 1 and 2 will pick out a dice image based on rand int. 
+function diceRoll1() {
+
+switch (randomNumber1) {
+    case 0:
+        document.getElementById("P1i").setAttribute("src", "Images/dice1.png");
+        break;
+    case 1:
+        document.getElementById("P1i").setAttribute("src", "Images/dice1.png");
+        break;
+    case 2: 
+        document.getElementById("P1i").setAttribute("src", "Images/dice2.png");
+        break;
+    case 3: 
+        document.getElementById("P1i").setAttribute("src", "Images/dice3.png");
+        break;
+    case 4: 
+        document.getElementById("P1i").setAttribute("src", "Images/dice4.png");
+        break;
+    case 5: 
+        document.getElementById("P1i").setAttribute("src", "Images/dice5.png");
+        break;
+    case 6: 
+        document.getElementById("P1i").setAttribute("src", "Images/dice6.png");
+        break;
+}
+}
+
+function diceRoll2() {
+
+switch (randomNumber2) {
+    case 0:
+        document.getElementById("P2i").setAttribute("src", "Images/dice1.png");
+        break;
+    case 1:
+        document.getElementById("P2i").setAttribute("src", "Images/dice1.png");
+        break;
+    case 2: 
+        document.getElementById("P2i").setAttribute("src", "Images/dice2.png");
+        break;
+    case 3: 
+        document.getElementById("P2i").setAttribute("src", "Images/dice3.png");
+        break;
+    case 4: 
+        document.getElementById("P2i").setAttribute("src", "Images/dice4.png");
+        break;
+    case 5: 
+        document.getElementById("P2i").setAttribute("src", "Images/dice5.png");
+        break;
+    case 6: 
+        document.getElementById("P2i").setAttribute("src", "Images/dice6.png");
+        break;
+  
+}
+}
+
+
+// Run the functions everytime the page is reloaded
+function reloadP() {
+    sessionStorage.setItem("reloading", "true");
+    document.location.reload();
+}
+
+// Make Header say who wins
+
+function winner() {
+if (randomNumber1 > randomNumber2) {
+  document.getElementById("HH1").innerHTML = "Player 1 wins!";
+} else if (randomNumber1 < randomNumber2) {
+  document.getElementById("HH1").innerHTML = "Player 2 wins!";
+} else {
+  document.getElementById("HH1").innerHTML = "It's a Draw!";
+}
+}
+
+
+// Call the dice roll functions on page refresh.
+window.onload = diceRoll1(), diceRoll2(), winner();
+
+  </script>
+
+  </body>
+
+ 
+</html>
